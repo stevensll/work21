@@ -31,7 +31,6 @@ int main() {
             response[i]-= 32;
           }
         }
-        printf("Sent final response to the client\n");
         write(to_client, response, BUFFER_SIZE);
       }
     }
