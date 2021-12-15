@@ -18,14 +18,14 @@ int main() {
       else{
         int i;
         for(i = 0; i < BUFFER_SIZE; i++){
-          if(res[i] >= 'a' && res[i] <= 'z'){
-            res[i]-= 32;
+          if(response[i] >= 'a' && response[i] <= 'z'){
+            response[i]-= 32;
           }
         }
         write(to_client, response, BUFFER_SIZE);
       }
     }
-    printf("Client is disconnected, waiting for a connection.\n")
+    printf("Client is disconnected, waiting for a connection.\n");
     
   }
   return 0;
