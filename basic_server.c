@@ -1,8 +1,17 @@
 #include "pipe_networking.h"
 
+static void sighandler(int sig) {
+
+    if (sig == SIGINT) {
+        printf("Exiting server...\n");
+        exit(0);
+    }
+
+}
 
 int main() {
-
+  
+  signal(SIGINT, sighandler);
   while(1){
     int to_client;
     int from_client;
@@ -23,6 +32,7 @@ int main() {
           }
         }
         write(to_client, response, BUFFER_SIZE);
+        printf("Sent final response to the client");
       }
     }
     printf("Client is disconnected, waiting for a connection.\n");

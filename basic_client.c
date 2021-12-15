@@ -1,8 +1,17 @@
 #include "pipe_networking.h"
 
+static void sighandler(int sig) {
+
+    if (sig == SIGINT) {
+        printf("Exiting server...\n");
+        exit(0);
+    }
+
+}
 
 int main() {
 
+  signal(SIGINT, sighandler);
   int to_server;
   int from_server;
 
